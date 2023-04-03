@@ -1,20 +1,31 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <fmt/ranges.h>
 
 bool sumOfTwo(std::vector<int>, int val);
 void zadanie3();
+void calc(std::vector<double>& v);
 
 int main() {
-//    std::vector<int> v = {2, 4, 5, 8, 9, 11, 13, 15};
-//    int val = 21;
-//    sumOfTwo(v, val);
+    std::cout << "Exercise 1: " << std::endl;
+    std::vector<int> v1 = {2, 4, 5, 8, 9, 11, 13, 15};
+    int val = 21;
+    sumOfTwo(v1, val);
+    std:: cout << '\n';
 
+    std::cout << "Exercise 3: " << std::endl;
     zadanie3();
+    std::cout << '\n';
 
+    std::vector<double> v2;
+    double input;
 
-
+    std::cout << "Insert 10 numbers: " << std::endl;
+    for (int i = 0; i < 10; i++) {
+        std::cin >> input;
+        v2.insert(v2.begin(), input);
+    }
+    calc(v2);
 
     return 0;
 }
@@ -69,4 +80,26 @@ void zadanie3() {
     };
     auto counterPrime = std::count_if(vec.begin(), vec.end(), isPrime);
     std::cout << "Prime number count: " << counterPrime << std::endl;
+}
+
+void calc(std::vector<double>& v) {
+    static int counter = 0;
+
+    if (counter % 2 == 0) {
+        v[0] += v.back();
+    } else {
+        v[0] -= v.back();
+    }
+    v.pop_back();
+
+    counter++;
+    std::cout << "Vector: ";
+    for (double element : v) {
+        std::cout << element << " ";
+    }
+    std::cout << std::endl;
+
+    if (v.size() > 1) {
+        calc(v);
+    }
 }
