@@ -2,57 +2,7 @@
 #include <cmath>
 #include "c08.h"
 
-class Point {
-    double x, y;
-
-public:
-    Point();
-    Point(double s);
-    Point(double x, double y);
-
-    double getX() const;
-    double getY() const;
-    Point& setX(double xx);
-    Point& setY(double yy);
-    Point& transX(double dx);
-    Point& transY(double dy);
-    Point& transXY(double dx, double dy);
-    static double dist(const Point& p, const Point& q);
-};
-
-class Rect {
-    double a, b;
-
-public:
-    Rect(): a(1), b(1) {};
-    Rect(double s): a(s), b(s) {};
-    Rect(double a, double b): a(a), b(b) {};
-
-    double getA() const {
-        return a;
-    }
-
-    double getB() const {
-        return b;
-    }
-
-    double getDiagonal() const {
-        return std::sqrt(a * a + b * b);
-    }
-
-    double getArea() const {
-        return a * a;
-    }
-
-    bool isLargerThan(const Rect& other) const {
-        return getArea() > other.getArea();
-    }
-
-    void info() const {
-        std::cout << "Rect[" << getA() << "," << getB() << "]" << std::endl;
-    }
-};
-
+//ZADANIE 1
 Point::Point() {
     x = 0;
     y = 0;
@@ -109,8 +59,38 @@ double Point::dist(const Point &p, const Point &q) {
     return std::sqrt(dx * dx + dy * dy);
 }
 
+//ZADANIE 2
+Rect::Rect(): a(1), b(1) {};
+Rect::Rect(double s): a(s), b(s) {};
+Rect::Rect(double a, double b): a(a), b(b) {};
+
+double Rect::getA() const {
+    return a;
+}
+
+double Rect::getB() const {
+    return b;
+}
+
+double Rect::getDiagonal() const {
+    return std::sqrt(a * a + b * b);
+}
+
+double Rect::getArea() const {
+    return a * a;
+}
+
+bool Rect::isLargerThan(const Rect& other) const {
+    return getArea() > other.getArea();
+}
+
+void Rect::info() const {
+    std::cout << "Rect[" << getA() << "," << getB() << "]" << std::endl;
+}
+
 
 int main() {
+    //ZADANIE 1
     Point p;
     Point q(1);
     Point r(1, 2);
@@ -120,6 +100,7 @@ int main() {
     std::cout << Point::dist(p, q) << std::endl;
     std::cout << Point::dist(p, r) << std::endl;
 
+    //ZADANIE 2
     Rect rect;
     Rect rect2(2);
     Rect rect3(2, 3);
