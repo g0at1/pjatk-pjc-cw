@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.24)
 project(PJC_CLion)
 
-
 set(CMAKE_CXX_STANDARD 23)
 
 include(FetchContent)
@@ -21,6 +20,9 @@ add_executable(PJC_CLionCW cwiczenia.cpp)
 add_executable(PJC_CLionKR02 kartkowka.cpp)
 add_executable(PJC_CLion4 c04.cpp)
 add_executable(PJC_CLion5 c05.cpp)
+add_executable(PJC_CLion6 c06.cpp)
+add_executable(PJC_CLion7 c07.cpp)
+add_executable(PJC_CLion8 c08.cpp c08.h)
 target_link_libraries(PJC_CLion3 fmt)
 target_link_libraries(PJC_CLionCW fmt)
 target_link_libraries(PJC_CLionKR02 fmt)
