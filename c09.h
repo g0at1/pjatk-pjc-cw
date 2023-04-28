@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <ostream>
+#include <string>
+#include <vector>
 
 //ZADANIE 1
 template <typename E>
@@ -57,6 +59,21 @@ public:
     friend std::ostream& operator<<(std::ostream&, const Resistor&);
 
 
+};
+
+//ZADANIE 3
+class Person {
+    static size_t ID;
+    std::string name;
+    size_t id;
+    std::vector<const Person*> friends;
+
+public:
+    Person(std::string name);
+    void makeFriends(Person& p);
+    void listOfFriends() const;
+    std::vector<const Person*> friendsOfFriends() const;
+    std::string info() const;
 };
 
 
